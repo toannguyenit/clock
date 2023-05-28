@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Coding Analog Clock</title>
+    <link rel="stylesheet" href="style.css" />
+  </head>
+  <body>
+    <div class="clock-container">
+      <div class="circle"></div>
+      <div class="circle"></div>
+      <div class="clock">
+        <div class="clock-bg">
+          <img src="img/clock.png" alt="clock" />
+        </div>
+        <div class="hour"><span class="hr" id="hr"></span></div>
+        <div class="minute"><span class="min" id="min"></span></div>
+        <div class="second"><span class="sec" id="sec"></span></div>
+      </div>
+    </div>
+    <script>
+      "use strict";
+
+      const degree = 6;
+      const hr = document.querySelector("#hr");
+      const min = document.querySelector("#min");
+      const sec = document.querySelector("#sec");
+
+      setInterval(() => {
+        const date = new Date();
+        const hh = date.getHours();
+        const mm = date.getMinutes() * degree;
+        const ss = date.getSeconds() * degree;
+
+        hr.style.transform = `rotateZ(${hh + mm / 12}deg)`;
+        min.style.transform = `rotateZ(${mm}deg)`;
+        sec.style.transform = `rotateZ(${ss}deg)`;
+      });
+    </script>
+  </body>
+</html>
