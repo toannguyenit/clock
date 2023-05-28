@@ -10,10 +10,10 @@ jobs:
     - name: 🚚 Get latest code
       uses: actions/checkout@v3
 
-    - name: Use Node.js 18
+    - name: Use Node.js 10
       uses: actions/setup-node@v2
       with:
-        node-version: '18'
+        node-version: '10'
       
     - name: 🔨 Build Project
       run: |
@@ -23,6 +23,6 @@ jobs:
     - name: 📂 Sync files
       uses: SamKirkland/FTP-Deploy-Action@v4.3.4
       with:
-        server: ${{ secrets.ftp_sever }}
-        username: ${{ secrets.ftp_username }}
-        password: ${{ secrets.ftp_password }}
+        server: ${{ secrets.FTP_SEVER }}
+        username: ${{ secrets.FTP_USERNAME }}
+        password: ${{ secrets.FTP_PASSWORD }}
